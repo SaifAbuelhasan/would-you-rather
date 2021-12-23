@@ -1,6 +1,7 @@
 import { _getQuestions, _getUsers } from "../backend/_DATA";
 import { recieveQuestions } from "./questions";
 import { recieveUsers } from "./users";
+import { endLoading } from "./loading";
 
 export function handleInitialData() {
     return async (dispatch) => {
@@ -8,5 +9,6 @@ export function handleInitialData() {
         const users = await _getUsers();
         dispatch(recieveQuestions(questions));
         dispatch(recieveUsers(users));
+        dispatch(endLoading());
     }
 }

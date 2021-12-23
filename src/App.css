@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Homepage styles */
+.home {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid {
+  display: grid;
+  grid-template-areas: 'unanswered answered'
+                        'main main';
+  border: solid 0.75px gray;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.answered {
+  grid-area: answered;
+}
+
+.unanswered {
+  grid-area: unanswered;
+}
+
+.top {
+  border: none;
+  border-bottom: solid 0.75px gray;
+  height: 40px;
+  background: none;
+  font-weight: bold;
+}
+
+.top:hover {
+  cursor: pointer;
+  background-color: rgba(196, 196, 196, 0.3);
+  color: #6FD4B0;
+}
+
+.questions-container {
+  grid-area: main;
+  padding: 35px 25px;
+}
+
+.questions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+/* Question styles */
+.question {
+  margin: 20px 0;
+  border: solid 0.75px gray;
+  width: 400px;
+  display: grid;
+  grid-template-areas: 'top top top top'
+                       'image text text text';
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.who-asks {
+  padding: 10px;
+  background: rgba(196, 196, 196, 0.3);
+  font-weight: 650;
+  font-size: 12px;
+  grid-area: top;
 }
+
+.avatar {
+  height: 80px;
+  border-radius: 40px;
+  margin: 10px;
+  grid-area: image;
+}
+
+.question-content {
+  grid-area: text;
+  padding: 15px;
+  position: relative;
+}
+
+.question-content::before {
+  content: '';
+  border: solid 0.75px gray;
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: 0;
+}
+
+.would-you {
+  font-weight: bold;
+  margin: 3px;
+}
+
+.sample {
+  margin: 3px;
+  font-weight: lighter;
+}
+
+.view-button {
+  border: solid 1px #6FD4B0;
+  color: #6FD4B0;
+  height: 35px;
+  background: none;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.view-button:hover {
+  border: solid 1px #457a68;
+  color: #457a68;
+  cursor: pointer;
+}
+

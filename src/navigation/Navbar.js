@@ -1,6 +1,7 @@
 import '../App.css';
 import './Navbar.css'
 import { Link, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 function Navbar() {
   let { pathname } = useLocation();
@@ -23,6 +24,11 @@ function Navbar() {
       </header>
     </div>
   );
+}
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    authedUser
+  }
 }
 
 export default Navbar;
