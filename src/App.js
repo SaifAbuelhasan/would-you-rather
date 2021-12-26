@@ -8,6 +8,7 @@ import Leaderboard from './pages/Leaderboard';
 import NewQuestion from './pages/NewQuestion';
 import Navbar from './navigation/Navbar';
 import Login from './pages/Login';
+import Poll from './pages/Poll';
 
 function App(props) {
   useEffect(() => {
@@ -17,19 +18,23 @@ function App(props) {
   return (
     <div>
       <Navbar />
+      <div className='page'>
         {
-          props.authedUser === null ?
-          <Login />
-          :
           props.loading ?
           <h1>Loading</h1>
           :
+          props.authedUser === null ?
+          <Login />
+          :
+          // 
           <Routes>
             <Route exact path='/' element={<Home />}/>
             <Route path='/leaderboard' element={<Leaderboard />} />
             <Route path='/new-question' element={<NewQuestion />} />
+            <Route path='/poll/:id' element={<Poll />} />
           </Routes>
         }
+      </div>
     </div>
   );
 }

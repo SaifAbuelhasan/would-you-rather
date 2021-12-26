@@ -1,7 +1,8 @@
 import '../App.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-function Question({ question, avatarURL, id }) {
+function Question({ question, avatarURL }) {
     return (
     <div className='question'>
         <div className='who-asks'>
@@ -13,8 +14,8 @@ function Question({ question, avatarURL, id }) {
         />
         <div className='question-content'>
             <p className='would-you'>Would you rather</p>
-            <p className='sample'>{question.optionOne.text}...</p>
-            <button className='view-button'>View Poll</button>
+            <p className='subtitle'>{question.optionOne.text}...</p>
+            <Link to={`/poll/${question.id}`}><button className='button' >View Poll</button></Link>
         </div>
     </div>
     );
